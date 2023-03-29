@@ -11,20 +11,14 @@ btnGioca.addEventListener("click", function(){
     const level = selectLevel.value
     
     if(level === "49"){
-        container.classList.remove("hide")
         container.classList.add("facile")
-        container.classList.remove("medio")
-        container.classList.remove("difficile")
+        container.classList.remove("medio", "difficile", "hide")
     } else if(level === "81"){
-        container.classList.remove("hide")
         container.classList.add("medio")
-        container.classList.remove("difficile")
-        container.classList.remove("facile")
+        container.classList.remove("difficile", "facile", "hide")
     } else if(level === "100"){
-        container.classList.remove("hide")
         container.classList.add("difficile")
-        container.classList.remove("medio")
-        container.classList.remove("facile")
+        container.classList.remove("medio", "hide","facile")
     } else {
         alert("scegli un livello")
     }
@@ -35,19 +29,16 @@ btnGioca.addEventListener("click", function(){
         console.log(level)
         
         const square = createSquare()
-
         container.append(square)
 
         const squareMessage = createSquareMessage()
-
         squareMessage.id = i
-
         square.append(squareMessage)
 
         square.addEventListener("click", function(){
 
-        square.classList.toggle("clicked")
-        console.log(squareMessage.id)
+            square.classList.toggle("clicked")
+            console.log(squareMessage.id)
         })
 
         btnReset.addEventListener("click",function(){
