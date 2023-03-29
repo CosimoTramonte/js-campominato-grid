@@ -31,26 +31,23 @@ button{
     width: 100vw;
 }
 
-.containerFacile{
+.facile{
     height: 420px;
     width: 420px;
-    background-color: brown;
     margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
 }
-.containerMedio{
+.medio{
     height: 540px;
     width: 540px;
-    background-color: rgb(99, 62, 230);
     margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
 }
-.containerDifficile{
+.difficile{
     height: 600px;
     width: 600px;
-    background-color: rgb(47, 175, 96);
     margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
@@ -65,4 +62,13 @@ button{
     width: 60px;
     border: 1px solid white;
     background-color: rgb(71, 145, 148);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}
+
+.clicked{
+    background-color: rgb(253, 113, 71);
 }

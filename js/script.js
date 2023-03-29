@@ -1,54 +1,62 @@
 
-const containerFacile = document.querySelector(".containerFacile")
-const containerMedio = document.querySelector(".containerMedio")
-const containerDifficile = document.querySelector(".containerDifficile")
+const container = document.querySelector(".container")
 const selectLevel = document.getElementById("level")
 const btnGioca = document.getElementById("gioca")
+const btnReset = document.getElementById("reset")
+
+
 
 btnGioca.addEventListener("click", function(){
 
     const level = selectLevel.value
     
-    if(level === "facile"){
-        containerFacile.classList.remove("hide")
-        containerMedio.classList.add("hide")
-        containerDifficile.classList.add("hide")
-
-        for(let i = 1; i <= 49; i++){
-
-            const square = createSquare()
-
-            containerFacile.append(square)
-        }
-
-    } else if(level === "medio"){
-        containerMedio.classList.remove("hide")
-        containerDifficile.classList.add("hide")
-        containerFacile.classList.add("hide")
-
-        for(let i = 1; i <= 81; i++){
-            
-            const square = createSquare()
-
-            containerMedio.append(square)
-        }
-
-    } else if(level === "difficile"){
-        containerDifficile.classList.remove("hide")
-        containerFacile.classList.add("hide")
-        containerMedio.classList.add("hide")
-
-        for(let i = 1; i <= 100; i++){
-            
-            const square = createSquare()
-
-            containerDifficile.append(square)
-        }
-
+    if(level === "49"){
+        container.classList.remove("hide")
+        container.classList.add("facile")
+        container.classList.remove("medio")
+        container.classList.remove("difficile")
+    } else if(level === "81"){
+        container.classList.remove("hide")
+        container.classList.add("medio")
+        container.classList.remove("difficile")
+        container.classList.remove("facile")
+    } else if(level === "100"){
+        container.classList.remove("hide")
+        container.classList.add("difficile")
+        container.classList.remove("medio")
+        container.classList.remove("facile")
     } else {
         alert("scegli un livello")
     }
+
+
+    for (let i = 1; i <= level; i++){
+
+        console.log(level)
+        
+        const square = createSquare()
+
+        container.append(square)
+
+        const squareMessage = createSquareMessage()
+
+        squareMessage.id = i
+
+        square.append(squareMessage)
+
+        square.addEventListener("click", function(){
+
+        square.classList.toggle("clicked")
+        console.log(squareMessage.id)
+        })
+
+        btnReset.addEventListener("click",function(){
+            square.remove()
+        })
+    }
+
 })
+
 
 
 
@@ -63,7 +71,10 @@ function createSquare(){
     return getsquare
 }
 
-function getRandomNumber(min, max){
+function createSquareMessage(){
 
-    
+    const getsquareMessage = document.createElement("div")
+
+    return getsquareMessage
 }
+
